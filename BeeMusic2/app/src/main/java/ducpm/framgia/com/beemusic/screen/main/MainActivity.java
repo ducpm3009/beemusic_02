@@ -1,8 +1,10 @@
-package ducpm.framgia.com.beemusic.sreen.main;
+package ducpm.framgia.com.beemusic.screen.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 import ducpm.framgia.com.beemusic.R;
+
 
 public class MainActivity extends AppCompatActivity {
 
