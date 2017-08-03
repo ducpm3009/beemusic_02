@@ -2,7 +2,6 @@ package ducpm.framgia.com.beemusic.screen.main;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-
 import ducpm.framgia.com.beemusic.R;
 import ducpm.framgia.com.beemusic.databinding.ActivityMainBinding;
 import ducpm.framgia.com.beemusic.screen.BaseActivity;

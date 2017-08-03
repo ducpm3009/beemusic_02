@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
  * Created by ducpm on 30/07/17.
  */
 
-
 public abstract class BaseRecyclerViewAdapter<V extends RecyclerView.ViewHolder>
         extends RecyclerView.Adapter<V> {
 
