@@ -1,6 +1,8 @@
 package ducpm.framgia.com.beemusic.screen.main;
 
 import android.content.Context;
+import android.content.Intent;
+import ducpm.framgia.com.beemusic.screen.song.SongActivity;
 
 /**
  * Listens to user actions from the UI ({@link MainActivity}), retrieves the data and updates
@@ -27,6 +29,8 @@ final class MainPresenter implements MainContract.Presenter {
 
     @Override
     public void showAllSong() {
+        Intent intent = new Intent(mContext, SongActivity.class);
+        mContext.startActivity(intent);
     }
 
     @Override
