@@ -2,6 +2,7 @@ package ducpm.framgia.com.beemusic.screen.main;
 
 import android.content.Context;
 import android.content.Intent;
+import ducpm.framgia.com.beemusic.screen.artist.ArtistActivity;
 import ducpm.framgia.com.beemusic.screen.song.SongActivity;
 
 /**
@@ -35,7 +36,8 @@ final class MainPresenter implements MainContract.Presenter {
 
     @Override
     public void showAllArtist() {
-
+        Intent intent = new Intent(mContext, ArtistActivity.class);
+        mContext.startActivity(intent);
     }
 
     @Override
