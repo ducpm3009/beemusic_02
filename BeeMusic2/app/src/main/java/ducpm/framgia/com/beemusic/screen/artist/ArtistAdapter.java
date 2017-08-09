@@ -44,13 +44,17 @@ public class ArtistAdapter extends BaseRecyclerViewAdapter<ArtistAdapter.ViewHol
         holder.bind(mArtists.get(position));
     }
 
-    void setArtistClickListener(OnRecyclerViewItemClickListener<Artist> songClickListener) {
-        mArtistClickListener = songClickListener;
+    void setArtistClickListener(OnRecyclerViewItemClickListener<Artist> artistClickListener) {
+        mArtistClickListener = artistClickListener;
     }
 
     @Override
     public int getItemCount() {
         return mArtists == null ? 0 : mArtists.size();
+    }
+
+    public void setViewModel(ArtistViewModel viewModel) {
+        mViewModel = viewModel;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

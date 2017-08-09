@@ -1,18 +1,20 @@
 package ducpm.framgia.com.beemusic.data.model;
 
-import java.util.List;
-
 /**
  * Created by ducpm on 06/08/17.
  */
 
 public class Artist extends BaseModel {
     private String mArtistName;
-    private List<Song> mSongs;
+    private int mID;
+    private int mTotalSongs;
+    private String mArtwork;
 
-    public Artist(String artistName, List<Song> songs) {
+    public Artist(String artistName, int id, int totalSongs, String artwork) {
         mArtistName = artistName;
-        mSongs = songs;
+        mID = id;
+        mTotalSongs = totalSongs;
+        mArtwork = artwork;
     }
 
     public String getArtistName() {
@@ -23,11 +25,27 @@ public class Artist extends BaseModel {
         mArtistName = artistName;
     }
 
-    public List<Song> getSongs() {
-        return mSongs;
+    public int getTotalSongs() {
+        return mTotalSongs;
     }
 
-    public void setSongs(List<Song> songs) {
-        mSongs = songs;
+    public void setTotalSongs(int totalSongs) {
+        mTotalSongs = totalSongs;
+    }
+
+    public int getID() {
+        return mID;
+    }
+
+    public void setID(int ID) {
+        mID = ID;
+    }
+
+    public String getArtwork() {
+        return mArtwork;
+    }
+
+    public void setArtwork(String artwork) {
+        mArtwork = artwork;
     }
 }
