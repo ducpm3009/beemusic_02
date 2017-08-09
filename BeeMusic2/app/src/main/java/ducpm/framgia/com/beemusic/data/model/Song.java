@@ -1,6 +1,6 @@
 package ducpm.framgia.com.beemusic.data.model;
 
-import android.graphics.drawable.Drawable;
+import android.net.Uri;
 
 /**
  * Created by ducpm on 30/07/17.
@@ -11,17 +11,19 @@ public class Song extends BaseModel {
     private String mSongArtist;
     private String mSongAlbum;
     private int mSongDuration;
-    private Drawable mSongArtwork;
+    private String mSongArtwork;
     private int mID;
+    private Uri mUri;
 
     public Song(String songTitle, String songArtist, String songAlbum, int songDuration,
-            Drawable songArtwork, int id) {
+            String songArtwork, int id, Uri uri) {
         mSongTitle = songTitle;
         mSongArtist = songArtist;
         mSongAlbum = songAlbum;
         mSongDuration = songDuration;
         mSongArtwork = songArtwork;
         mID = id;
+        mUri = uri;
     }
 
     public String getSongTitle() {
@@ -56,11 +58,11 @@ public class Song extends BaseModel {
         mSongDuration = songDuration;
     }
 
-    public Drawable getSongArtwork() {
+    public String getSongArtwork() {
         return mSongArtwork;
     }
 
-    public void setSongArtwork(Drawable songArtwork) {
+    public void setSongArtwork(String songArtwork) {
         mSongArtwork = songArtwork;
     }
 
@@ -70,5 +72,13 @@ public class Song extends BaseModel {
 
     public void setID(int ID) {
         mID = ID;
+    }
+
+    public Uri getUri() {
+        return mUri;
+    }
+
+    public void setUri(Uri uri) {
+        mUri = uri;
     }
 }

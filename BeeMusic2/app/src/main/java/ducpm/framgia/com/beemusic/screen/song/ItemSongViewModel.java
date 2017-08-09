@@ -1,9 +1,8 @@
 package ducpm.framgia.com.beemusic.screen.song;
 
 import android.databinding.BaseObservable;
-import android.graphics.drawable.Drawable;
+import android.databinding.Bindable;
 import android.view.View;
-
 import ducpm.framgia.com.beemusic.data.model.Song;
 import ducpm.framgia.com.beemusic.screen.BaseRecyclerViewAdapter;
 
@@ -14,14 +13,12 @@ import ducpm.framgia.com.beemusic.screen.BaseRecyclerViewAdapter;
 public class ItemSongViewModel extends BaseObservable {
     private Song mSong;
     private BaseRecyclerViewAdapter.OnRecyclerViewItemClickListener<Song> mSongClickListener;
-    private SongViewModel mSongViewModel;
 
     public ItemSongViewModel(Song song,
             BaseRecyclerViewAdapter.OnRecyclerViewItemClickListener<Song> songClickListener,
             SongViewModel songViewModel) {
         mSong = song;
         mSongClickListener = songClickListener;
-        mSongViewModel = songViewModel;
     }
 
     public String getSongTitle() {
@@ -36,15 +33,16 @@ public class ItemSongViewModel extends BaseObservable {
         return mSong.getSongAlbum();
     }
 
-    public int getSongDuration() {
-        return mSong.getSongDuration();
+    public String getSongDuration() {
+        return String.valueOf(mSong.getSongDuration());
     }
 
+    @Bindable
     public boolean getSongFav() {
         return mSong.isFavorite();
     }
 
-    public Drawable getSongArtwork() {
+    public String getSongArtwork() {
         return mSong.getSongArtwork();
     }
 
