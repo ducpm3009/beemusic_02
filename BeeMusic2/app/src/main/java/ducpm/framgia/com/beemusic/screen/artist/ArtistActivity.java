@@ -17,10 +17,11 @@ import java.util.List;
 public class ArtistActivity extends BaseActivity {
 
     private ArtistContract.ViewModel mViewModel;
-
+    private ArtistAdapter mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         ActivityArtistBinding binding =
                 DataBindingUtil.setContentView(this, R.layout.activity_artist);
         List<Artist> artistList = new ArrayList<>();

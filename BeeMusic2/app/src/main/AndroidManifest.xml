@@ -25,6 +25,8 @@
             android:name=".screen.artist.ArtistActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"/>
+
+        <service android:name=".service.PlayerService"/>
     </application>
 
 </manifest>

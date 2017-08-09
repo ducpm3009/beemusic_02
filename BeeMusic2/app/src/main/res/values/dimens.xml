@@ -16,4 +16,5 @@
     <dimen name="dp_0">0dp</dimen>
     <dimen name="dp_110">110dp</dimen>
     <dimen name="dp_5">5dp</dimen>
+    <integer name="span_3">3</integer>
 </resources>
