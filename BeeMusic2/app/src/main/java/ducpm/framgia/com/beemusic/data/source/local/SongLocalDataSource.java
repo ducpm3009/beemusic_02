@@ -1,8 +1,8 @@
 package ducpm.framgia.com.beemusic.data.source.local;
 
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.database.Cursor;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import ducpm.framgia.com.beemusic.data.model.Song;
@@ -36,6 +36,7 @@ public class SongLocalDataSource implements SongDataSource {
         if (cursor.moveToFirst()) {
             result = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Albums.ALBUM_ART));
         }
+        cursor.close();
         return result;
     }
 
@@ -61,9 +62,10 @@ public class SongLocalDataSource implements SongDataSource {
                         MediaStore.Audio.Media.ARTIST, MediaStore.Audio.Media.ALBUM,
                         MediaStore.Audio.Media.DURATION, MediaStore.Audio.Media._ID
                 };
+                String selection = MediaStore.Audio.Media.IS_MUSIC + "!=0";
                 Uri songUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
                 Cursor songCursor =
-                        mContentResolver.query(songUri, projection, null, null, null, null);
+                        mContentResolver.query(songUri, projection, selection, null, null, null);
 
                 if (songCursor != null && songCursor.moveToFirst()) {
 
@@ -84,16 +86,18 @@ public class SongLocalDataSource implements SongDataSource {
                         int currentDuration = songCursor.getInt(songDuration);
                         String currentAlbumArtPath =
                                 createSongArtworkPathFromAlbumID(currentAlbumID);
-
+                        Uri currentUri = ContentUris.withAppendedId(
+                                MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, songCursor.getInt(
+                                        songCursor.getColumnIndex(MediaStore.Audio.Media._ID)));
                         songList.add(
                                 new Song(currentTitle, currentArtist, currentAlbum, currentDuration,
-                                        Drawable.createFromPath(currentAlbumArtPath), currentID));
+                                        currentAlbumArtPath, currentID, currentUri));
                     } while (songCursor.moveToNext());
                     e.onNext(songList);
                 } else {
                     e.onError(new NullPointerException());
                 }
-
+                songCursor.close();
                 e.onComplete();
             }
         });

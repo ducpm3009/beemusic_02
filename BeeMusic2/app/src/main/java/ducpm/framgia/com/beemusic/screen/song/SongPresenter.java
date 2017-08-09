@@ -33,7 +33,6 @@ final class SongPresenter implements SongContract.Presenter {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableObserver<List<Song>>() {
-
                     @Override
                     public void onNext(@NonNull List<Song> songs) {
                         mViewModel.onGetSongSuccess(songs);
@@ -64,5 +63,6 @@ final class SongPresenter implements SongContract.Presenter {
 
     @Override
     public void onFavoriteButtonClicked(Song song, boolean isFavorite) {
+        song.setFavorite(!isFavorite);
     }
 }
